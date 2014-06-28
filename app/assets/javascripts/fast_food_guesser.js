@@ -50,13 +50,6 @@ window.FastFoodGuesser = {
       $("main").replaceWith(question);
     });
 
-    $('#popit').magnificPopup({
-      items: {
-        src: '<div class="white-popup">Dynamically created popup</div>',
-        type: 'inline'
-      },
-      closeBtnInside: true
-    });
 
     //the meat of it
     var counter = 1;
