@@ -1,0 +1,25 @@
+@import "bootstrap";
+
+.blue {
+    background-color: blue;
+}
+
+main {
+    height: 300px;
+    border: 1px solid black;
+}
+
+.overlay {
+    height: 500px;
+    width: 500px;
+    border: 1px solid black;
+}
+
+.white-popup {
+    position: relative;
+    background: #FFF;
+    padding: 20px;
+    width:auto;
+    max-width: 500px;
+    margin: 20px auto;
+}

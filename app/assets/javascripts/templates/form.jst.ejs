@@ -1,0 +1,14 @@
+<main>
+  <p><%= current_question.question %></p>
+  <form action="#" name="myform">
+    <input type="radio" name="group1" value="<%= current_question.options[0]%>" id="0"><%= current_question.options[0]%>
+    <input type="radio" name="group1" value="<%= current_question.options[1]%>" id="1"><%= current_question.options[1]%>
+    <input type="radio" name="group1" value="<%= current_question.options[2]%>" id="2"><%= current_question.options[2]%>
+    <input type="submit" value="ok">
+  </form>
+  <p><%= message %></p>
+  <p>You score is currently: <%= current_score %></p>
+
+  <button id="popit">Popup</button>
+
+</main>
