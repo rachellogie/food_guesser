@@ -6,4 +6,5 @@ feature 'homepage' do
     visit root_path
     expect(page).to have_content 'Fast food guesser'
   end
+
 end

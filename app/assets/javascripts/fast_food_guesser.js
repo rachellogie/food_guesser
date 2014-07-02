@@ -13,7 +13,8 @@ window.FastFoodGuesser = {
           ' Potassium Sorbate And Sodium Benzoate Added As Preservatives, Lactic Acid, Citric Acid, Disodium Inosinate,' +
           ' Disodium Guanylate, Spice, Propylene Glycol Alginate, Calcium Disodium EDTA',
         options: ["Taco Bell's Pepper Jack Sauce", "Carl's Junior Pepperjack Cheese", "McDonald's Buttermilk Ranch Sauce"],
-        answer: "Taco Bell's Pepper Jack Sauce"
+        answer: "Taco Bell's Pepper Jack Sauce",
+        fun_fact: "fun fact 1"
 
       },
       {
@@ -24,18 +25,23 @@ window.FastFoodGuesser = {
           ' leavening (baking soda, sodium aluminum phosphate), spice, hydroxypropylmethylcellulose, yeast extract, ' +
           'corn starch, sorbitol, dried yeast, calcium chloride. parfried in soybean oil.',
         options: ["Arby's Onion Roll", "Burger King's Onion Rings", "Pizza Hut's Breadsticks"],
-        answer: "Burger King's Onion Rings"
+        answer: "Burger King's Onion Rings",
+        fun_fact: "Hydroxypropylmethylcellulose 'is a semisynthetic, inert, viscoelastic polymer used as an " +
+          "ophthalmic lubricant, as well as an excipient and controlled-delivery component in oral medicaments, " +
+          "found in a variety of commercial products.'  Mmmmm, that sounds delicious!"
       },
       {
         question: 'Hass Avocado, Red Onion, Jalapeño, Cilantro, Citrus Juice, Salt',
         options: ["Taco Bell's Premium Guacamole", "Burger King's Avocado Alioli", "Chipotle's Guacamole"],
-        answer: "Chipotle's Guacamole"
+        answer: "Chipotle's Guacamole",
+        fun_fact: "fun fact 3"
       },
       {
         question: 'Pork Cured with Water, Salt, Sugar, Hickory Smoke Flavoring, Sodium Phosphates, Dextrose,' +
           ' Sodium Erythorbate, Sodium Nitrite.',
         options: ["Chipotle's Carnitas", "McDonald's McRib", "Carl's Junior's Bacon"],
-        answer: "Carl's Junior's Bacon"
+        answer: "Carl's Junior's Bacon",
+        fun_fact: "fun fact 4"
       }
     ]
 
@@ -68,9 +74,11 @@ window.FastFoodGuesser = {
       var is_correct = check_if_correct(their_guess, counter - 1);
       score = increment_score(is_correct);
 
-      //make the message whatever it is
+      var fun_fact = questions[counter - 1]["fun_fact"];
+
       $(".modal-header #header").html( message );
-      $(".modal-body #paragraph_content").html( "Your score is now: " + score + " out of " + counter);
+      $(".modal-body #correct_answer").html( "The correct answer was: " + questions[counter - 1]["answer"] );
+      $(".modal-body #paragraph_content").html( "Your score is now: " + score + " out of " + counter + ".  \n" + "FUN FACT! \n" + fun_fact);
 
       $("#myModalSucks").modal('show');
       console.log("stuff");
