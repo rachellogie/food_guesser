@@ -49,8 +49,6 @@ window.FastFoodGuesser = {
 
     $(document).on("click", "button#start", function (event) {
       event.preventDefault();
-
-
       var question = JST['templates/form']({current_question: questions[0], q_num: 1});
       $("main").replaceWith(question);
     });
@@ -70,15 +68,15 @@ window.FastFoodGuesser = {
 
       var fun_fact = questions[counter - 1]["fun_fact"];
 
-      $(".modal-header #header").html( message );
-      $(".modal-body #correct_answer").html( "The correct answer was: " + questions[counter - 1]["answer"] );
-      $(".modal-body #paragraph_content").html( "Your score is now: " + score + " out of " + counter + ".  \n" + "FUN FACT! \n" + fun_fact);
+      $(".modal-header #header").html(message);
+      $(".modal-body #correct_answer").html("The correct answer was: " + questions[counter - 1]["answer"]);
+      $(".modal-body #your_score").html("Your score is now: " + score + " out of " + counter + ".  \n");
+      $(".modal-body #fun-fact").html(fun_fact);
 
       $("#myModalSucks").modal('show');
 
-
       if (counter >= questions.length) {
-        var end_screen = JST['templates/ending']({current_score: score, message: message});
+        var end_screen = JST['templates/ending']({current_score: score, q_num: counter + 1});
         $("main").replaceWith(end_screen);
       } else {
         var question = JST['templates/form']({current_question: questions[counter], q_num: counter + 1});
@@ -86,7 +84,6 @@ window.FastFoodGuesser = {
         counter++;
       }
     });
-
 
     function check_if_correct(their_guess, index) {
       if (their_guess == questions[index]["answer"]) {
@@ -104,7 +101,5 @@ window.FastFoodGuesser = {
       }
       return score;
     }
-
   }
-
 };
