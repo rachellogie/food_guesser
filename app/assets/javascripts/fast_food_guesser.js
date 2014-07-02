@@ -62,12 +62,18 @@ window.FastFoodGuesser = {
       event.preventDefault();
 
 
-      $("#myModalSucks").modal('show');
-      console.log("stuff");
+
 
       var their_guess = $('input[name="group1"]:checked').val();
       var is_correct = check_if_correct(their_guess, counter - 1);
       score = increment_score(is_correct);
+
+      //make the message whatever it is
+      $(".modal-header #header").html( message );
+      $(".modal-body #paragraph_content").html( "Your score is now: " + score + " out of " + counter);
+
+      $("#myModalSucks").modal('show');
+      console.log("stuff");
 
 
       if (counter >= questions.length) {
