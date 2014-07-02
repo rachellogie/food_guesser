@@ -44,11 +44,13 @@ window.FastFoodGuesser = {
     var welcome = JST['templates/welcome']();
     $("main").append(welcome);
 
-    $("#start").on("click", function (event) {
+    $(document).on("click", "button#start", function (event) {
       event.preventDefault();
       var question = JST['templates/form']({current_question: questions[0], current_score: 0, message: ""});
       $("main").replaceWith(question);
     });
+
+
 
 
     //the meat of it
@@ -56,8 +58,12 @@ window.FastFoodGuesser = {
     var score = 0;
 
     var message = "boo ya";
-    $(document).on("click", "input[type=submit]", function (event) {
+    $(document).on("click", "button#myModalButton", function (event) {
       event.preventDefault();
+
+
+      $("#myModalSucks").modal('show');
+      console.log("stuff");
 
       var their_guess = $('input[name="group1"]:checked').val();
       var is_correct = check_if_correct(their_guess, counter - 1);
