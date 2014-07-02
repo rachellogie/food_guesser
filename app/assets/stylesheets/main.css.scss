@@ -4,18 +4,13 @@ $logoFontFamily: 'Limelight', cursive;
 
 
 nav {
-
-  h5 {
-    font-family: $logoFontFamily;
-  }
+  background-color: black;
+  color:white;
+  padding: 10px 70px;
 }
 
-h2 {
+h2, h5 {
   font-family: $logoFontFamily;
-}
-
-main {
-    border: 1px solid black;
 }
 
 .white-popup {
@@ -26,4 +21,10 @@ main {
     max-width: 500px;
     margin: 20px auto;
 }
+
+.btn-margin {
+  margin: 20px;
+}
+
+
 

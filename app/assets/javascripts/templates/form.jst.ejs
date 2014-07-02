@@ -1,48 +1,43 @@
 <main>
+  <div class="row btn-margin">
+    <h2 class="col-md-8 col-md-offset-2">Numero <%= q_num %></h2>
+  </div>
   <ul class="list-unstyled list-inline">
-    <% var i = 0; %>
-    <% var my_class = ".col-md-2"; %>
-    <% current_question.question.forEach(function(ingredient){ %>
+    <% var ingredients = current_question.question; %>
+    <% for(var i = 0; i < ingredients.length; i += 2) { %>
     <div class="row">
-
-      <% if(i > current_question.question.length/2){ %>
-      <% my_class=".col-md-2 .col-md-offset-2"; %>
-      <% console.log(current_question.question.length/2) %>
-      <% console.log(i) %>
-      <% }%>
-      <li class=my_class><%= ingredient %></li>
-      <% i++; %>
+      <div class="col-md-6"><%= ingredients[i] %></div>
+      <div class="col-md-6"><%= ingredients[i + 1] %></div>
     </div>
 
-    <% }); %>
+    <% }; %>
   </ul>
+  <div class="row btn-margin">
+    <form action="#" name="myform" class="col-md-8 col-md-offset-2">
+      <div class="radio">
+        <label>
+          <input type="radio" name="group1" value="<%= current_question.options[0] %>"
+                 id="0"><%= current_question.options[0] %>
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <input type="radio" name="group1" value="<%= current_question.options[1] %>"
+                 id="1"><%= current_question.options[1] %>
+        </label>
+      </div>
 
-  <form action="#" name="myform">
-    <div class="radio">
-      <label>
-        <input type="radio" name="group1" value="<%= current_question.options[0] %>"
-               id="0"><%= current_question.options[0] %>
-      </label>
-    </div>
-    <div class="radio">
-      <label>
-        <input type="radio" name="group1" value="<%= current_question.options[1] %>"
-               id="1"><%= current_question.options[1] %>
-      </label>
-    </div>
-
-    <div class="radio">
-      <label>
-        <input type="radio" name="group1" value="<%= current_question.options[2] %>"
-               id="2"><%= current_question.options[2] %>
-      </label>
-    </div>
-    <button class="btn btn-primary btn-lrg" data-toggle="modal" data-target="#myModalSucks" id="myModalButton">Guess!
-    </button>
-  </form>
-  <p><%= message %></p>
-
-  <p>You score is currently: <%= current_score %></p>
+      <div class="radio">
+        <label>
+          <input type="radio" name="group1" value="<%= current_question.options[2] %>"
+                 id="2"><%= current_question.options[2] %>
+        </label>
+      </div>
+      <button class="btn btn-primary btn-lrg btn-margin" data-toggle="modal" data-target="#myModalSucks"
+              id="myModalButton">Guess!
+      </button>
+    </form>
+  </div>
 
 
 </main>

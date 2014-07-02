@@ -7,7 +7,7 @@ window.FastFoodGuesser = {
         question: ('Soybean Oil, Buttermilk, Water, Distilled Vinegar, Egg Yolk, Jalapeno Peppers, High Fructose Corn Syrup,' +
           ' Granular, Monterey Jack, Parmesan, And Semisoft Cheeses (Milk, Cheese Cultures, Salt, Enzymes), Buttermilk*,' +
           ' Salt, Bell Pepper*, Xanthan Gum, Garlic*, Onion*, Mustard Seed, Whey, Natural Flavor,' +
-          ' Potassium Sorbate And Sodium Benzoate Added As Preservatives, Lactic Acid, Citric Acid, Disodium Inosinate,' +
+          ' Potassium Sorbate, Sodium Benzoate, Lactic Acid, Citric Acid, Disodium Inosinate,' +
           ' Disodium Guanylate, Spice, Propylene Glycol Alginate, Calcium Disodium EDTA').split(","),
         options: ["Taco Bell's Pepper Jack Sauce", "Carl's Junior Pepperjack Cheese", "McDonald's Buttermilk Ranch Sauce"],
         answer: "Taco Bell's Pepper Jack Sauce",
@@ -40,7 +40,8 @@ window.FastFoodGuesser = {
         answer: "Carl's Junior's Bacon",
         fun_fact: "fun fact 4"
       }
-    ]
+    ];
+
 
     // when the page loads, have a welcome message
     var welcome = JST['templates/welcome']();
@@ -50,9 +51,10 @@ window.FastFoodGuesser = {
       event.preventDefault();
 
 
-      var question = JST['templates/form']({current_question: questions[0], current_score: 0, message: ""});
+      var question = JST['templates/form']({current_question: questions[0], q_num: 1});
       $("main").replaceWith(question);
     });
+
 
     //the meat of it
     var counter = 1;
@@ -61,9 +63,6 @@ window.FastFoodGuesser = {
     var message = "boo ya";
     $(document).on("click", "button#myModalButton", function (event) {
       event.preventDefault();
-
-//      var ingredients = questions[counter]["question"];
-//      console.log(ingredients);
 
       var their_guess = $('input[name="group1"]:checked').val();
       var is_correct = check_if_correct(their_guess, counter - 1);
@@ -82,7 +81,7 @@ window.FastFoodGuesser = {
         var end_screen = JST['templates/ending']({current_score: score, message: message});
         $("main").replaceWith(end_screen);
       } else {
-        var question = JST['templates/form']({current_question: questions[counter], current_score: score, message: message});
+        var question = JST['templates/form']({current_question: questions[counter], q_num: counter + 1});
         $("main").replaceWith(question);
         counter++;
       }
@@ -105,11 +104,6 @@ window.FastFoodGuesser = {
       }
       return score;
     }
-
-    function turn_q_into_array(ingredients){
-      return ingredients.split(",");
-    }
-
 
   }
 
