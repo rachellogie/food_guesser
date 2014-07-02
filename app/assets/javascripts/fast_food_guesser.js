@@ -4,23 +4,23 @@ window.FastFoodGuesser = {
 
     var questions = [
       {
-        question: 'Soybean Oil, Buttermilk, Water, Distilled Vinegar, Egg Yolk, Jalapeno Peppers, High Fructose Corn Syrup,' +
+        question: ('Soybean Oil, Buttermilk, Water, Distilled Vinegar, Egg Yolk, Jalapeno Peppers, High Fructose Corn Syrup,' +
           ' Granular, Monterey Jack, Parmesan, And Semisoft Cheeses (Milk, Cheese Cultures, Salt, Enzymes), Buttermilk*,' +
           ' Salt, Bell Pepper*, Xanthan Gum, Garlic*, Onion*, Mustard Seed, Whey, Natural Flavor,' +
           ' Potassium Sorbate And Sodium Benzoate Added As Preservatives, Lactic Acid, Citric Acid, Disodium Inosinate,' +
-          ' Disodium Guanylate, Spice, Propylene Glycol Alginate, Calcium Disodium EDTA',
+          ' Disodium Guanylate, Spice, Propylene Glycol Alginate, Calcium Disodium EDTA').split(","),
         options: ["Taco Bell's Pepper Jack Sauce", "Carl's Junior Pepperjack Cheese", "McDonald's Buttermilk Ranch Sauce"],
         answer: "Taco Bell's Pepper Jack Sauce",
         fun_fact: "fun fact 1"
 
       },
       {
-        question: 'water, bleached wheat flour, dehydrated onion, modified corn starch, yellow corn flour, sugar, ' +
+        question: ('water, bleached wheat flour, dehydrated onion, modified corn starch, yellow corn flour, sugar, ' +
           'gelatinized wheat starch, contains 2% or less of :salt, guar gum, methylcellulose, fructose, onion powder, ' +
           'food starch-modified, sodium alginate, sunflower oil, natural flavors, grill flavor (from sunflower oil),' +
           'canola oil, wheat gluten, modified palm oil, sodium tripolyphosphate, whey, dextrose, garlic powder,' +
           ' leavening (baking soda, sodium aluminum phosphate), spice, hydroxypropylmethylcellulose, yeast extract, ' +
-          'corn starch, sorbitol, dried yeast, calcium chloride. parfried in soybean oil.',
+          'corn starch, sorbitol, dried yeast, calcium chloride. parfried in soybean oil.').split(","),
         options: ["Arby's Onion Roll", "Burger King's Onion Rings", "Pizza Hut's Breadsticks"],
         answer: "Burger King's Onion Rings",
         fun_fact: "Hydroxypropylmethylcellulose 'is a semisynthetic, inert, viscoelastic polymer used as an " +
@@ -28,14 +28,14 @@ window.FastFoodGuesser = {
           "found in a variety of commercial products.'  Mmmmm, that sounds delicious!"
       },
       {
-        question: 'Hass Avocado, Red Onion, Jalapeño, Cilantro, Citrus Juice, Salt',
+        question: ('Hass Avocado, Red Onion, Jalapeño, Cilantro, Citrus Juice, Salt').split(","),
         options: ["Taco Bell's Premium Guacamole", "Burger King's Avocado Alioli", "Chipotle's Guacamole"],
         answer: "Chipotle's Guacamole",
         fun_fact: "fun fact 3"
       },
       {
-        question: 'Pork Cured with Water, Salt, Sugar, Hickory Smoke Flavoring, Sodium Phosphates, Dextrose,' +
-          ' Sodium Erythorbate, Sodium Nitrite.',
+        question: ('Pork Cured with Water, Salt, Sugar, Hickory Smoke Flavoring, Sodium Phosphates, Dextrose,' +
+          ' Sodium Erythorbate, Sodium Nitrite.').split(","),
         options: ["Chipotle's Carnitas", "McDonald's McRib", "Carl's Junior's Bacon"],
         answer: "Carl's Junior's Bacon",
         fun_fact: "fun fact 4"
@@ -48,6 +48,8 @@ window.FastFoodGuesser = {
 
     $(document).on("click", "button#start", function (event) {
       event.preventDefault();
+
+
       var question = JST['templates/form']({current_question: questions[0], current_score: 0, message: ""});
       $("main").replaceWith(question);
     });
@@ -60,6 +62,9 @@ window.FastFoodGuesser = {
     $(document).on("click", "button#myModalButton", function (event) {
       event.preventDefault();
 
+//      var ingredients = questions[counter]["question"];
+//      console.log(ingredients);
+
       var their_guess = $('input[name="group1"]:checked').val();
       var is_correct = check_if_correct(their_guess, counter - 1);
       score = increment_score(is_correct);
@@ -71,7 +76,6 @@ window.FastFoodGuesser = {
       $(".modal-body #paragraph_content").html( "Your score is now: " + score + " out of " + counter + ".  \n" + "FUN FACT! \n" + fun_fact);
 
       $("#myModalSucks").modal('show');
-      console.log("stuff");
 
 
       if (counter >= questions.length) {
@@ -100,6 +104,10 @@ window.FastFoodGuesser = {
         score++;
       }
       return score;
+    }
+
+    function turn_q_into_array(ingredients){
+      return ingredients.split(",");
     }
 
 
