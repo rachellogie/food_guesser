@@ -2,9 +2,6 @@ window.FastFoodGuesser = {
 
   initialize: function () {
 
-    //pops up with correct answer and some fact about the ingredients
-
-
     var questions = [
       {
         question: 'Soybean Oil, Buttermilk, Water, Distilled Vinegar, Egg Yolk, Jalapeno Peppers, High Fructose Corn Syrup,' +
@@ -45,7 +42,6 @@ window.FastFoodGuesser = {
       }
     ]
 
-
     // when the page loads, have a welcome message
     var welcome = JST['templates/welcome']();
     $("main").append(welcome);
@@ -56,9 +52,6 @@ window.FastFoodGuesser = {
       $("main").replaceWith(question);
     });
 
-
-
-
     //the meat of it
     var counter = 1;
     var score = 0;
@@ -66,9 +59,6 @@ window.FastFoodGuesser = {
     var message = "boo ya";
     $(document).on("click", "button#myModalButton", function (event) {
       event.preventDefault();
-
-
-
 
       var their_guess = $('input[name="group1"]:checked').val();
       var is_correct = check_if_correct(their_guess, counter - 1);
