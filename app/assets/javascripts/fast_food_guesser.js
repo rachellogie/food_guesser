@@ -11,16 +11,16 @@ window.FastFoodGuesser = {
           ' Disodium Guanylate, Spice, Propylene Glycol Alginate, Calcium Disodium EDTA').split(","),
         options: ["Taco Bell's Pepper Jack Sauce", "Carl's Junior Pepperjack Cheese", "McDonald's Buttermilk Ranch Sauce"],
         answer: "Taco Bell's Pepper Jack Sauce",
-        fun_fact: "fun fact 1"
+        fun_fact: "Soybeans are one of the top GMO crops: 93% of soybeans in the USA have been genetically modified."
 
       },
       {
         question: ('water, bleached wheat flour, dehydrated onion, modified corn starch, yellow corn flour, sugar, ' +
-          'gelatinized wheat starch, contains 2% or less of :salt, guar gum, methylcellulose, fructose, onion powder, ' +
+          'gelatinized wheat starch, salt, guar gum, methylcellulose, fructose, onion powder, ' +
           'food starch-modified, sodium alginate, sunflower oil, natural flavors, grill flavor (from sunflower oil),' +
           'canola oil, wheat gluten, modified palm oil, sodium tripolyphosphate, whey, dextrose, garlic powder,' +
           ' leavening (baking soda, sodium aluminum phosphate), spice, hydroxypropylmethylcellulose, yeast extract, ' +
-          'corn starch, sorbitol, dried yeast, calcium chloride. parfried in soybean oil.').split(","),
+          'corn starch, sorbitol, dried yeast, calcium chloride, soybean oil.').split(","),
         options: ["Arby's Onion Roll", "Burger King's Onion Rings", "Pizza Hut's Breadsticks"],
         answer: "Burger King's Onion Rings",
         fun_fact: "Hydroxypropylmethylcellulose 'is a semisynthetic, inert, viscoelastic polymer used as an " +
@@ -31,14 +31,16 @@ window.FastFoodGuesser = {
         question: ('Hass Avocado, Red Onion, Jalapeño, Cilantro, Citrus Juice, Salt').split(","),
         options: ["Taco Bell's Premium Guacamole", "Burger King's Avocado Alioli", "Chipotle's Guacamole"],
         answer: "Chipotle's Guacamole",
-        fun_fact: "fun fact 3"
+        fun_fact: "Taco Bell's guacamole has some things in common with Chipotle's, but Taco Bell adds more ingredients, such " +
+          "as ascorbic/erythorbic acid, xanthan gum, and sodium alginate."
       },
       {
         question: ('Pork Cured with Water, Salt, Sugar, Hickory Smoke Flavoring, Sodium Phosphates, Dextrose,' +
           ' Sodium Erythorbate, Sodium Nitrite.').split(","),
         options: ["Chipotle's Carnitas", "McDonald's McRib", "Carl's Junior's Bacon"],
         answer: "Carl's Junior's Bacon",
-        fun_fact: "fun fact 4"
+        fun_fact: "Sodium nitrite is commonly added to processed meats. The American Medical Association " +
+          "says that sodium nitrites can lead to gastrointestinal and brain cancer. "
       }
     ];
 
